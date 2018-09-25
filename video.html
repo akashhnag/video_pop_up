@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Draggable Video Player</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+    </head>
+    <body>
+        <!--ui-widget-content-->
+        <button class="open_video">Open Video</button>
+        <div class="draggable1">
+            <div class="options">
+                <button><i  id="close_button" class="fa fa-times" aria-hidden="true"></i></button>
+                <button><i id="minimise_button" class="fa fa-window-minimize" aria-hidden="true"></i></button>
+                <button><i id="maximise_button" class="fa fa-window-maximize" aria-hidden="true"></i></button>                               
+            </div>
+            <div class="c-video ">            
+                <video class="video" src="sample2.mp4" controls></video>            
+            </div>
+        </div>              
+        
+        <script src="jquery.min.js"></script>
+        <script src="jquery-ui/jquery-ui.min.js"></script>
+        <script>
+            $(function(){                
+                $(".draggable1").hide();              
+                $(".open_video").click(()=>{
+                    $(".draggable1").show();                   
+                })                
+                $(".draggable1").draggable();   
+                $(".draggable1").resizable();             
+                $("#close_button").click(()=>{
+                    $(".draggable1").remove();                   
+                })
+                $("#minimise_button").click(function(){
+               $(".c-video").hide( "slide", { direction: "up"  });
+            });
+
+            $("#maximise_button").click(function(){
+               $(".c-video").show( "slide", {direction: "up" });
+            });
+            })
+        </script>
+    </body>
+</html>
